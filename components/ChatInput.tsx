@@ -1,4 +1,3 @@
-
 // Fix: Add type definitions for the Web Speech API to resolve TypeScript errors.
 // These types are not always included in default TypeScript DOM library files.
 interface SpeechRecognitionAlternative {
@@ -117,31 +116,31 @@ export const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage, isLoading, 
   const hasSpeechRecognition = !!recognitionRef.current;
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 bg-gray-800 border-t border-gray-700">
+    <form onSubmit={handleSubmit} className="p-4 bg-brand-surface/80 backdrop-blur-sm border-t border-brand-border">
       <div className="relative">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder={disabled ? "Please enable location to chat" : "Ask about places or click the mic..."}
+          placeholder={disabled ? "Please enable location to chat" : "Where can I find the best coffee?"}
           disabled={isLoading || disabled}
-          className={`w-full bg-gray-700 text-white rounded-full py-3 pl-5 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 transition-all duration-200 ${hasSpeechRecognition ? 'pr-28' : 'pr-14'}`}
+          className={`w-full bg-gray-100 text-brand-text-primary rounded-full py-3 pl-5 placeholder-brand-text-secondary border border-transparent focus:outline-none focus:ring-2 focus:ring-brand-primary focus:bg-brand-surface focus:border-brand-primary disabled:opacity-50 transition-all duration-200 ${hasSpeechRecognition ? 'pr-28' : 'pr-14'}`}
         />
         {hasSpeechRecognition && (
           <button
             type="button"
             onClick={handleMicClick}
             disabled={isLoading || disabled}
-            className="absolute right-16 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 transition-colors duration-200"
+            className="absolute right-16 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-primary disabled:opacity-50 transition-colors duration-200"
             aria-label={isListening ? 'Stop listening' : 'Start listening'}
           >
             {isListening ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-500 animate-pulse" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-brand-error animate-pulse" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M7 4a3 3 0 016 0v6a3 3 0 11-6 0V4z" />
                 <path fillRule="evenodd" d="M3 8a1 1 0 011-1h.5a5.5 5.5 0 0111 0H16a1 1 0 110 2h-.5a5.5 5.5 0 01-11 0H4a1 1 0 01-1-1z" clipRule="evenodd" />
               </svg>
             ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-brand-text-secondary" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M7 4a3 3 0 016 0v6a3 3 0 11-6 0V4z" />
                 <path fillRule="evenodd" d="M3 8a1 1 0 011-1h.5a5.5 5.5 0 0111 0H16a1 1 0 110 2h-.5a5.5 5.5 0 01-11 0H4a1 1 0 01-1-1z" clipRule="evenodd" />
               </svg>
@@ -151,7 +150,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage, isLoading, 
         <button
           type="submit"
           disabled={isLoading || disabled || !input.trim()}
-          className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors duration-200"
+          className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-brand-primary hover:bg-brand-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary disabled:bg-brand-primary/50 disabled:cursor-not-allowed transition-colors duration-200"
         >
           {isLoading ? (
             <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
