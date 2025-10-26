@@ -1,11 +1,9 @@
-
 import { GoogleGenAI, GenerateContentResponse, Content } from "@google/genai";
 import { UserLocation, GroundingChunk, Message } from '../types';
 
-if (!process.env.API_KEY) {
-  throw new Error("API_KEY environment variable not set");
-}
-
+// Fix: Per Gemini API guidelines, the API key must be obtained from process.env.API_KEY.
+// This is assumed to be available in the execution environment. This also resolves
+// the TypeScript error related to 'import.meta.env'.
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 interface GroundedResponse {

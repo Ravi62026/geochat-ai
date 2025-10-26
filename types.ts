@@ -1,3 +1,12 @@
+// Fix: Add a global type definition for 'process.env.API_KEY' to satisfy TypeScript,
+// as required by the Gemini API guidelines for API key handling.
+declare global {
+  var process: {
+    env: {
+      API_KEY: string;
+    };
+  };
+}
 
 export interface SearchGroundingChunk {
   web: {
