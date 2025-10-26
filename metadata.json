@@ -1,0 +1,8 @@
+{
+  "name": "GeoChat AI",
+  "description": "An interactive map-based chatbot that uses real-time Google Maps and Google Search data to answer your location-specific questions. Ask about places nearby and get up-to-date, grounded information.",
+  "requestFramePermissions": [
+    "geolocation",
+    "microphone"
+  ]
+}
