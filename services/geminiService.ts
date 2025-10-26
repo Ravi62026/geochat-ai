@@ -4,7 +4,7 @@ import { UserLocation, GroundingChunk, Message } from '../types';
 // Fix: Per Gemini API guidelines, the API key must be obtained from process.env.API_KEY.
 // This is assumed to be available in the execution environment. This also resolves
 // the TypeScript error related to 'import.meta.env'.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: "AIzaSyCgcuBAqGiQOguG8ZD-zDQqje86YgYeUBg" });
 
 interface GroundedResponse {
   text: string;
